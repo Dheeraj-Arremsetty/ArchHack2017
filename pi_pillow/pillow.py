@@ -53,7 +53,7 @@ def cleanGPIO():
     except:
         print("Error cleaning GPIO")
 
-def is_pillow_activated():
+def is_pillow_active():
     try:
         on_pillow = GPIO.input(TOUCH)
     except:
@@ -71,6 +71,7 @@ def vibrate(to_vibrate):
         GPIO.output(RELAY_MOTOR, PI_LOW)
 
 def set_alarm():
+    global PI_ALARM_SET
     if PI_ALARM_SET == False:
         PI_CURRENT_TIME = round(time.time())
         PI_NEXT_ALARM_TIME = PI_CURRENT_TIME + min2sec(random.randint(2, 6))
@@ -78,7 +79,7 @@ def set_alarm():
         PI_IS_ALARMED = False
 
 def check_alarm():
-    if PI_ALARM_SET and !PI_IS_ALARMED and (time.time() > PI_NEXT_ALARM_TIME):
+    if PI_ALARM_SET and (not PI_IS_ALARMED) and (time.time() > PI_NEXT_ALARM_TIME):
         vibrate(True)
         time.sleep(10)
         vibrate(False)
@@ -87,11 +88,12 @@ def check_alarm():
 
 if __name__ == "__main__":
     initialize()
-    set_alarm()
-    while !PI_IS_PILLOW_ACTIVE:
+    print("Smart PILLOW Initialized. Waiting for activation...")
+    while not PI_IS_PILLOW_ACTIVE:
         PI_IS_PILLOW_ACTIVE = is_pillow_active()
-        pass()
+        pass
     print("Smart PILLOW is Active")
+    set_alarm()
     for x in range(0, 10):
         print(get_temperature())
         time.sleep(0.2)
