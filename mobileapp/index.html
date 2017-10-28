@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>TheSmartPillow</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="icon" href="logo.png">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="template.css">
+  <link rel="stylesheet" href="slide.css">
+  <!-- Javascript -->
+  <script type="text/javascript" src="animate.js"></script>
+  <script type="text/javascript" src="chart.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', { 'packages': ['corechart', 'line'] });
+    google.charts.load('current', { 'packages': ['table'] });
+    google.charts.setOnLoadCallback(drawChart);
+  </script>
+  <!-- Link to Google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+        <a class="navbar-brand" href="#myPage">TheSmartPillow</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#stats">Statistics</a></li>
+          <li><a href="#data">Data</a></li>
+          <li><a href="#aboutus">About Us</a></li </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron text-center">
+    <span class="glyphicon glyphicon-off statusbutton"></span>
+    <h1>TheSmartPillow</h1>
+    <p>Revolutionary way to reach deep into slumber.</p>
+  </div>
+
+  <!-- Container for stats -->
+  <div class="container-fluid" id="stats">
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>Statistics</h2>
+       <div id="linechart"></div>
+      </div>
+      <div class="col-sm-4">
+        
+        <!--span class="glyphicon glyphicon-signal logo"></span-->
+      </div>
+    </div>
+  </div>
+
+  <!-- Container for data -->
+  <div class="container-fluid bg-grey" id="data">
+    <div class="row">
+      <div class="col-sm-4">
+        <span class="glyphicon glyphicon-globe logo"></span>
+      </div>
+      <div class="col-sm-8">
+        <h2>Data</h2>
+        <div id="columnchart"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container for aboutus -->
+  <div class="container-fluid text-center" id="aboutus">
+    <h2>About Us</h2>
+    <h4>What we offer</h4>
+    <br>
+  </div>
+
+  <!-- Footer content -->
+  <footer class="container-fluid bg-grey text-center">
+    <a href="#myPage" title="To Top">
+      <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+    <p>Footer content</p>
+  </footer>
+</body>
+
+</html>
