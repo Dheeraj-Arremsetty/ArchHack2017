@@ -8,31 +8,38 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="icon" href="logo.png">
+  <link rel="icon" href="./mobileapp/logo.png">
+
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="template.css">
-  <link rel="stylesheet" href="slide.css">
+  <link rel="stylesheet" href="./mobileapp/template.css">
+  <link rel="stylesheet" href="./mobileapp/slide.css">
+
   <!-- Javascript -->
-  <script type="text/javascript" src="animate.js"></script>
-  <script type="text/javascript" src="chart.js"></script>
+  <script type="text/javascript" src="./mobileapp/animate.js"></script>
+  <script type="text/javascript" src="./mobileapp/chart.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     // Load google charts
     google.charts.load('current', { 'packages': ['corechart', 'line'] });
     google.charts.load('current', { 'packages': ['table'] });
-    google.charts.setOnLoadCallback(drawChart);
+    google.charts.load('current', {
+      callback: function () {
+        drawChart();
+        //setInterval(drawChart, 1000);
+      }
+    });
   </script>
   <!-- Link to Google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<body id="myPage" item2-spy="scroll" item2-target=".navbar" item2-offset="60">
   <!-- Navigation bar -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <button type="button" class="navbar-toggle" item2-toggle="collapse" item2-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
@@ -41,52 +48,67 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#stats">Statistics</a></li>
-          <li><a href="#data">Data</a></li>
-          <li><a href="#aboutus">About Us</a></li </ul>
+          <li><a href="#item1">LiveMotion</a></li>
+          <li><a href="#item2">AverageStats</a></li>
+          <li><a href="#item3">Last 7 Days</a></li>
+          <li><a href="#item4">About Us</a></li> </ul>
       </div>
     </div>
   </nav>
 
   <!-- Jumbotron -->
   <div class="jumbotron text-center">
-    <span class="glyphicon glyphicon-off statusbutton"></span>
-    <h1>TheSmartPillow</h1>
-    <p>Revolutionary way to reach deep into slumber.</p>
-  </div>
-
-  <!-- Container for stats -->
-  <div class="container-fluid" id="stats">
     <div class="row">
       <div class="col-sm-8">
-        <h2>Statistics</h2>
-       <div id="linechart"></div>
+        <h1>TheSmartPillow</h1>
+        <p>Revolutionary way to reach deep into slumber.</p>
       </div>
       <div class="col-sm-4">
-        
-        <!--span class="glyphicon glyphicon-signal logo"></span-->
+        <span id="status" class="glyphicon glyphicon-off statusbutton"></span>
       </div>
     </div>
   </div>
 
-  <!-- Container for data -->
-  <div class="container-fluid bg-grey" id="data">
+  <!-- Container for item1 -->
+  <div class="container-fluid" id="item1">
     <div class="row">
       <div class="col-sm-4">
-        <span class="glyphicon glyphicon-globe logo"></span>
+        <h2>Live Motion</h2>
+        <p>This where you see your live data transmitted from your pillow. This is calculated based on the movement, disturbances
+          the user is going through.
+        </p>
       </div>
       <div class="col-sm-8">
-        <h2>Data</h2>
+        <div id="motionchart"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container for item2 -->
+  <div class="container-fluid bg-grey" id="item2">
+    <div class="row">
+      <div class="col-sm-8">
+        <div id="linechart"></div>
+      </div>
+      <div class="col-sm-4">
+        <h2>Average Statistics</h2>
+        <p>This is the data gathered showing the average statistics of number hours slept on the particular Day. This is to
+          target your sleep pattern on that particular day. </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Container for item3 -->
+  <div class="container-fluid" id="item3">
+    <div class="row">
+      <div class="col-sm-4">
+        <h2>Last 7 Days</h2>
+        <p>These are the stats from your past 7 days sleep, total hours you slept.</p>
+      </div>
+      <div class="col-sm-8">
         <div id="columnchart"></div>
       </div>
     </div>
-  </div>
-
-  <!-- Container for aboutus -->
-  <div class="container-fluid text-center" id="aboutus">
-    <h2>About Us</h2>
-    <h4>What we offer</h4>
-    <br>
   </div>
 
   <!-- Footer content -->
