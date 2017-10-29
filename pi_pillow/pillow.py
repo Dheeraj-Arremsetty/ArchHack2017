@@ -5,7 +5,7 @@ import time
 import random
 import math
 import Adafruit_DHT
-
+import datetime
 IF_ALARMED = False
 IS_PILLOW_ACTIVE = False
 
@@ -14,7 +14,8 @@ GREEN_COLOR = 20
 RED_COLOR = 21
 
 RELAY_MOTOR = 18
-TOUCH = 23
+TOUCH_LEFT = 23
+TOUCH_RIGHT = 24
 TEMPERATURE = 4
 
 # Global Values
@@ -24,6 +25,7 @@ PI_IS_PILLOW_ACTIVE = False
 PI_SLEEP_EVENT = -1
 PI_IS_ALARMED = False
 PI_CURRENT_TIME = -1
+data = 0
 
 # ALARM CONFIGS
 PI_ALARM_SET = False
@@ -39,7 +41,8 @@ def min2sec(minute):
 def initialize():
     try:
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(TOUCH, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(TOUCH_LEFT, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(TOUCH_RIGHT, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.setup(RED_COLOR, GPIO.OUT)
         GPIO.setup(BLUE_COLOR, GPIO.OUT)
         GPIO.setup(GREEN_COLOR, GPIO.OUT)
@@ -53,9 +56,15 @@ def cleanGPIO():
     except:
         print("Error cleaning GPIO")
 
+
+
 def is_pillow_active():
     try:
-        on_pillow = GPIO.input(TOUCH)
+        if(GPIO.input(TOUCH_LEFT) or GPIO.input(TOUCH_RIGHT)):
+            
+            on_pillow = 1
+        else:
+            on_pillow = 0
     except:
         on_pillow = -1
     return on_pillow
@@ -86,15 +95,52 @@ def check_alarm():
         PI_ALARM_SET = False
         PI_IS_ALARMED = True
 
+def get_intensive():
+    global data
+    if(is_pillow_active()):
+        send = data
+        data = 0
+        return send
+    else:
+        data += 1
+        return -1          
+        
+
+   
+def get_result():
+    timestamp = datetime.datetime.now().strftime("%m-%d-%Y %H:%M:%S")
+    if(is_pillow_active()):
+    
+        result = {
+            'turn_on' : is_pillow_active(),
+            'temperature' : get_temperature(),
+            'timestamp': timestamp,
+            'intensive' : get_intensive()
+        
+            }
+    else:
+        result = {
+            'turn_on' : is_pillow_active(),
+            'temperature' : 0,
+            'timestamp': timestamp,
+            'intensive' : get_intensive()
+            
+        }
+    return result;
+
 if __name__ == "__main__":
     initialize()
     print("Smart PILLOW Initialized. Waiting for activation...")
-    while not PI_IS_PILLOW_ACTIVE:
-        PI_IS_PILLOW_ACTIVE = is_pillow_active()
-        pass
-    print("Smart PILLOW is Active")
     set_alarm()
-    for x in range(0, 10):
-        print(get_temperature())
+    print("Smart PILLOW is Active")
+    while  True:
+        print get_result()
         time.sleep(0.2)
-    cleanGPIO()
+        
+    
+    
+   
+
+    
+    
+   
