@@ -25,7 +25,7 @@
     google.charts.load('current', {
       callback: function () {
         drawChart();
-        //setInterval(drawChart, 1000);
+        setInterval(drawChart, 1000);
       }
     });
   </script>
@@ -51,6 +51,7 @@
           <li><a href="#item1">LiveMotion</a></li>
           <li><a href="#item2">AverageStats</a></li>
           <li><a href="#item3">Last 7 Days</a></li>
+          <li><a href="#item5">Tips</a></li>
           <li><a href="#item4">About Us</a></li>
         </ul>
       </div>
@@ -144,8 +145,28 @@
     </div>
   </div>
 
+  <!-- Container for item5 -->
+  <div class="container-fluid bg-grey" id="item5">
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>Here are some tips to follow for a good night's sleep</h2>
+        <ul>
+          <li>Make a point to go to bed at regular bedtime advised.</li>
+          <li>Evaluate Your room temperature, generally room temperatur between 60&deg; and 67&deg; is best.</li>
+          <li>No bright screens an hour before your nap time.</li>
+          <li>Exercise daily.</li>
+          <li>Avoid sleeping through the day, power naps are generally good idea.</li>
+          <li>Avoid alcohols, cigarettes, and heavy meals in the evening.</li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        
+      </div>
+    </div>
+  </div>
+
   <!-- Container for item4 -->
-  <div class="container-fluid bg-grey" id="item4">
+  <div class="container-fluid" id="item4">
     <div class="row">
       <div class="col colspan-2">
         <h2>About Us</h2>
@@ -179,6 +200,8 @@
     </div>
   </div>
 
+
+
   <!-- History Modal container -->
   <div class="modal fade" id="historyModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -206,12 +229,20 @@
             </table>
           </div>
         </div>
+        <div class="modal-footer text-left">
+          <div class="alert alert-info">
+            <p>Your sleep cycles are <strong> irregular</strong>. We recommend following measures:</p>
+            <p>Best time to go to Sleep for you: <strong>22:15 hrs</strong></p>
+            <p>You should get between: <strong>6.5 hrs to 8.5 hrs</strong> of sleep.</p>
+            <p>Best room temperature for you: <strong>62&deg;F</strong></p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Footer content -->
-  <footer class="container-fluid text-center">
+  <footer class="container-fluid  bg-grey text-center">
     <a href="#myPage" title="To Top">
       <span class="glyphicon glyphicon-chevron-up"></span>
     </a>

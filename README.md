@@ -25,8 +25,10 @@ We would like to extend our gratitude towards Washington University, Express Scr
 
 ## Getting Started
 
-#### Prerequisites
+#### Hardware Requirements:
+* Raspberry Pi
+* AWS
+* Website running on your smartphone
 
-#### Installing
-
-#### Hardware Requirements
+#### HOW TO RUN
+* Go to http://powerpillow.net/
