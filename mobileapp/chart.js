@@ -1,8 +1,8 @@
 // Draw the chart and set the chart values
 
-function drawChart() { 
+function drawChart() {
     $.ajax({
-        type:'GET',
+        type: 'GET',
         url: "https://4cx9iq8gdb.execute-api.us-east-1.amazonaws.com/test_api",
         dataType: 'json',
         success: function (jsonData) {
@@ -16,13 +16,13 @@ function drawChart() {
             }
             var tempC = jsonData.temperature[0];
             var tempF = tempC * 1.8 + 32;
-            $("#temp").html(tempF+'&deg;F');
+            $("#temp").html(tempF + '&deg;F');
             var humidity = jsonData.temperature[1];
-            $("#humidity").html(humidity+'%');
+            $("#humidity").html(humidity + '%');
 
             var timeStamp = jsonData.timestamp;
             $("#timestamp").html(timeStamp);
-            
+
             drawLineChart(eval(jsonData));
             drawColumnChart(eval(jsonData));
         },
@@ -36,8 +36,8 @@ function drawMotionChart(jsonData) {
     motionChartData.addColumn('number', 'Right motion');
 
     for (var i = 0; i < jsonData.change_in_motion_left.length || i < jsonData.change_in_motion_right.length; i++) {
-        var l = (jsonData.change_in_motion_left[i] <=0)? 0 : jsonData.change_in_motion_left[i];
-        var r = (jsonData.change_in_motion_right[i] <=0)? 0 : jsonData.change_in_motion_right[i];
+        var l = (jsonData.change_in_motion_left[i] <= 0) ? 0 : jsonData.change_in_motion_left[i];
+        var r = (jsonData.change_in_motion_right[i] <= 0) ? 0 : jsonData.change_in_motion_right[i];
         motionChartData.addRow([i, l, r]);
     }
 
@@ -101,3 +101,29 @@ function drawColumnChart(jsonData) {
 }
 
 
+function loadhistory() {
+
+    $.ajax({
+        type: 'GET',
+        url: "./mobileapp/datahistory.json",
+        dataType: 'json',
+        success: function (data) {
+            console.log("in data history");
+            var table_data = '';
+
+            $.each(data, function (key, val) {
+                table_data += "<tr>";
+                table_data += "<td>" + val.Date + "</td>";
+                table_data += "<td>" + val.Day + "</td>";
+                table_data += "<td>" + val.HoursSlept + "</td>";
+                table_data += "<td>" + val.Temperature + "</td>";
+                table_data += "<td>" + val.Humidity + "</td>";
+                table_data += "<td>" + val.REMCycletime + "</td>";
+                table_data += "<td>" + val.NREMCycletime + "</td>";
+                table_data += "</tr>";
+            });
+
+            $('#sleephistorytable').append(table_data);
+        }
+    });
+}

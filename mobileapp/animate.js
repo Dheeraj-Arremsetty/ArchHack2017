@@ -25,15 +25,15 @@ $(document).ready(function () {
 })
 
 /* jQuery for slide animation */
-$(window).scroll(function() {
-  $(".slideanim").each(function(){
-    var pos = $(this).offset().top;
+$(window).scroll(function () {
+    $(".slideanim").each(function () {
+        var pos = $(this).offset().top;
 
-    var winTop = $(window).scrollTop();
-    if (pos < winTop + 600) {
-      $(this).addClass("slide");
-    }
-  });
+        var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+            $(this).addClass("slide");
+        }
+    });
 });
 
 /*/ function to call REST API services
