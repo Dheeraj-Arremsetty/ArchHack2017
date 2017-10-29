@@ -1,10 +1,5 @@
 // Draw the chart and set the chart values
 
-function jsonCallback(json) {
-    console.log("log called ");
-    console.log(json);
-}
-
 function drawChart() {
     console.log("requesting resource");
     
@@ -12,9 +7,7 @@ function drawChart() {
         type:'GET',
         url: "https://4cx9iq8gdb.execute-api.us-east-1.amazonaws.com/test_api",
         dataType: 'json',
-        //jsonpCallback: "jsonCallback",
         success: function (jsonData) {
-            debugger;
             var status = jsonData.turn_on;
             var x = document.getElementById("status");
             if (!status) {
@@ -27,14 +20,8 @@ function drawChart() {
             drawLineChart(eval(jsonData));
             drawColumnChart(eval(jsonData));
         },
-
-        error: function () {
-            alert("Oops! something went wrong.");
-        },
     });
 }
-
-
 
 function drawMotionChart(jsonData) {
     var motionChartData = new google.visualization.DataTable();
