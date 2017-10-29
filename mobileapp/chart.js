@@ -3,11 +3,10 @@ function drawChart() {
     console.log("requesting resource");
     //debugger;
     $.ajax({
+        type:'GET',
         url: "https://4cx9iq8gdb.execute-api.us-east-1.amazonaws.com/test_api",
-        async: true,
-        type: 'GET',
         dataType: 'json',
-        cors: true,
+        //async: true,
         success: function (jsonData) {
 
             var status = jsonData.result.turn_on;
@@ -22,7 +21,11 @@ function drawChart() {
             drawLineChart(eval(jsonData));
             drawColumnChart(eval(jsonData));
 
-        }
+        },
+
+        error: function(){
+            alert("Oops! something went wrong.");
+        },
     });
 }
 
