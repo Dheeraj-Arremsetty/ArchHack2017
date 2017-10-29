@@ -8,11 +8,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="icon" href="./mobileapp/logo.png">
+  <link rel="icon" href="./mobileapp/img/logo.png">
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="./mobileapp/template.css">
-  <link rel="stylesheet" href="./mobileapp/slide.css">
 
   <!-- Javascript -->
   <script type="text/javascript" src="./mobileapp/animate.js"></script>
@@ -25,7 +24,7 @@
     google.charts.load('current', {
       callback: function () {
         drawChart();
-        setInterval(drawChart, 1000);
+        //setInterval(drawChart, 1000);
       }
     });
   </script>
@@ -34,7 +33,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 </head>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="100">
   <!-- Navigation bar -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -63,6 +62,16 @@
       <div class="col-sm-8">
         <h1>TheSmartPillow</h1>
         <p>Revolutionary way to reach deep into slumber.</p>
+        <p>
+          <h5 style="text-align: left; padding-left: 50px">
+            Temperature: <span class="label label-success" id="temp"></span>
+          </h5>
+        </p>
+        <p>
+          <h5 style="text-align: left; padding-left: 50px">
+            TimeStamp: <span class="label label-default" id="timestamp"></span>
+          </h5>
+        </p>
       </div>
       <div class="col-sm-4">
         <span id="status" class="glyphicon glyphicon-off statusbutton"></span>
@@ -120,33 +129,32 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-offset-2 col-sm-4 ">
+      <div class="col-sm-offset-2 col-sm-2">
         <div class="thumbnail">
-          <img src="./mobileapp/dheeraj.jpeg" alt="dheeraj">
+          <img class="img-circle " src="./mobileapp/img/dheeraj.jpeg" alt="dheeraj">
           <p><strong>Dheeraj Arremsetty </strong></p>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-2">
         <div class="thumbnail">
-          <img src="./mobileapp/aditya.jpeg" alt="aditya">
+          <img class="img-circle " src="./mobileapp/img/aditya.jpeg" alt="aditya">
           <p><strong>Aditya Karnam Gururaj Rao</strong></p>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-offset-2 col-sm-4">
+      <div class="col-sm-2">
         <div class="thumbnail">
-          <img src="./mobileapp/ameet.jpeg" alt="ameet">
+          <img class="img-circle " src="./mobileapp/img/ameet.jpeg" alt="ameet">
           <p><strong>Ameet Vishwakarma</strong></p>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-2">
         <div class="thumbnail">
-          <img src="./mobileapp/venu.jpeg" alt="venu">
+          <img class="img-circle " src="./mobileapp/img/venu.jpeg" alt="venu">
           <p><strong>Venu Gopal</strong></p>
         </div>
       </div>
     </div>
+
   </div>
 
   <!-- Footer content -->
@@ -154,8 +162,7 @@
     <a href="#myPage" title="To Top">
       <span class="glyphicon glyphicon-chevron-up"></span>
     </a>
-    <p>Project available on <a href="https://github.com/Dheeraj-Arremsetty/ArchHack2017">GitHub</a>. 
-    Licensed under <a href="https://github.com/Dheeraj-Arremsetty/ArchHack2017/blob/master/LICENSE">MIT License</a>.</p>
+    <p>Project available on <a href="https://github.com/Dheeraj-Arremsetty/ArchHack2017">GitHub</a>. Licensed under <a href="https://github.com/Dheeraj-Arremsetty/ArchHack2017/blob/master/LICENSE">MIT License</a>.</p>
   </footer>
 </body>
 

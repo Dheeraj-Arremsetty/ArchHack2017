@@ -1,3 +1,4 @@
+
 body {
     font: 400 15px Roboto, sans-serif;
     line-height: 1.8;
@@ -53,6 +54,7 @@ h4 {
     padding: 0 0 15px 0;
     border: none;
     border-radius: 0;
+    background-color: transparent;
 }
 
 .thumbnail img {
@@ -63,8 +65,8 @@ h4 {
 
 .thumbnail p {
     text-align: center;
-
 }
+
 .carousel-control.right, .carousel-control.left {
     background-image: none;
     color: #E76C2B;

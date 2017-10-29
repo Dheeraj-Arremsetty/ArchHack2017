@@ -1,16 +1,16 @@
 # The Smart Pillow 
 
-### WHY
+### WHY?
 We believe that a good nights sleep keeps you fresh, relax and energized for the day. Improves memory, reduces risks of diseases.
 
-### HOW
+### HOW?
 Using the smart pillow will help us collect data on your sleep pattern and deliver analysis based on this data. Also, this data can help us serve you better with sensors and better response.
 
-### WHAT
+### WHAT?
 We came up with a Revolutionary idea to help you reach the deep state of slumber.
 
 ## Project Scope 
-Our target audience are adults, people suffering with Insomnia and other sleep disprders.
+Our target audience is adults suffering from insomnia, snoring issue, and other sleep disorders. And almost anyone looking for a good night sleep and wanting to feel relaxed and energized.
 
 #### Project Link
 This project is maintained on [Github](https://github.com/Dheeraj-Arremsetty/ArchHack2017), feel free to explore and let us know your feedback.
@@ -27,6 +27,6 @@ We would like to extend our gratitude towards Washington University, Express Scr
 
 #### Prerequisites
 
-#### Installing 
+#### Installing
 
-#### Hardware requirements
+#### Hardware Requirements

@@ -15,7 +15,11 @@ function drawChart() {
             } else {
                 x.style.color = "#00FF00"; //green - running
             }
-
+            var tempC = jsonData.temperature;
+            var tempF = tempC * 1.8 + 32;
+            $("#temp").html(tempF+'&deg;F');
+            var timeStamp = jsonData.timestamp;
+            $("#timestamp").html(timeStamp);
             drawMotionChart(eval(jsonData));
             drawLineChart(eval(jsonData));
             drawColumnChart(eval(jsonData));

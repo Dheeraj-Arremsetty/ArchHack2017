@@ -36,12 +36,12 @@ $(window).scroll(function() {
   });
 });
 
-// function to call REST API services
+/*/ function to call REST API services
 function UserAction() {
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "https://4cx9iq8gdb.execute-api.us-east-1.amazonaws.com/test_api", true);
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
     var response = JSON.parse(xhttp.responseText);
-}
+}*/
 //<button type="submit" onclick="UserAction()">Search</button>
