@@ -25,7 +25,7 @@
     google.charts.load('current', {
       callback: function () {
         drawChart();
-        //setInterval(drawChart, 1000);
+        setInterval(drawChart, 1000);
       }
     });
   </script>
@@ -34,12 +34,12 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
 </head>
 
-<body id="myPage" item2-spy="scroll" item2-target=".navbar" item2-offset="60">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
   <!-- Navigation bar -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" item2-toggle="collapse" item2-target="#myNavbar">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
@@ -51,7 +51,8 @@
           <li><a href="#item1">LiveMotion</a></li>
           <li><a href="#item2">AverageStats</a></li>
           <li><a href="#item3">Last 7 Days</a></li>
-          <li><a href="#item4">About Us</a></li> </ul>
+          <li><a href="#item4">About Us</a></li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -111,12 +112,50 @@
     </div>
   </div>
 
+  <!-- Container for item4 -->
+  <div class="container-fluid bg-grey" id="item4">
+    <div class="row">
+      <div class="col colspan-2">
+        <h2>About Us</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-sm-4 ">
+        <div class="thumbnail">
+          <img src="./mobileapp/dheeraj.jpeg" alt="dheeraj">
+          <p><strong>Dheeraj Arremsetty </strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="./mobileapp/aditya.jpeg" alt="aditya">
+          <p><strong>Aditya Karnam Gururaj Rao</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-offset-2 col-sm-4">
+        <div class="thumbnail">
+          <img src="./mobileapp/ameet.jpeg" alt="ameet">
+          <p><strong>Ameet Vishwakarma</strong></p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="./mobileapp/venu.jpeg" alt="venu">
+          <p><strong>Venu Gopal</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer content -->
-  <footer class="container-fluid bg-grey text-center">
+  <footer class="container-fluid text-center">
     <a href="#myPage" title="To Top">
       <span class="glyphicon glyphicon-chevron-up"></span>
     </a>
-    <p>Footer content</p>
+    <p>Project available on <a href="https://github.com/Dheeraj-Arremsetty/ArchHack2017">GitHub</a>. 
+    Licensed under <a href="https://github.com/Dheeraj-Arremsetty/ArchHack2017/blob/master/LICENSE">MIT License</a>.</p>
   </footer>
 </body>
 
