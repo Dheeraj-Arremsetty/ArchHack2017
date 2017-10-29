@@ -1,8 +1,6 @@
 // Draw the chart and set the chart values
 
-function drawChart() {
-    console.log("requesting resource");
-    
+function drawChart() { 
     $.ajax({
         type:'GET',
         url: "https://4cx9iq8gdb.execute-api.us-east-1.amazonaws.com/test_api",
@@ -14,13 +12,17 @@ function drawChart() {
                 x.style.color = "#FF0000"; //red - stop
             } else {
                 x.style.color = "#00FF00"; //green - running
+                drawMotionChart(eval(jsonData));
             }
-            var tempC = jsonData.temperature;
+            var tempC = jsonData.temperature[0];
             var tempF = tempC * 1.8 + 32;
             $("#temp").html(tempF+'&deg;F');
+            var humidity = jsonData.temperature[1];
+            $("#humidity").html(humidity+'%');
+
             var timeStamp = jsonData.timestamp;
             $("#timestamp").html(timeStamp);
-            drawMotionChart(eval(jsonData));
+            
             drawLineChart(eval(jsonData));
             drawColumnChart(eval(jsonData));
         },
@@ -30,11 +32,15 @@ function drawChart() {
 function drawMotionChart(jsonData) {
     var motionChartData = new google.visualization.DataTable();
     motionChartData.addColumn('number', 'Seconds');
-    motionChartData.addColumn('number', 'Disturbance Level');
-    jsonData.change_in_motion;
-    for (var i = 0; i < jsonData.change_in_motion.length; i++) {
-        motionChartData.addRow([i, jsonData.change_in_motion[i]]);
+    motionChartData.addColumn('number', 'Left motion');
+    motionChartData.addColumn('number', 'Right motion');
+
+    for (var i = 0; i < jsonData.change_in_motion_left.length || i < jsonData.change_in_motion_right.length; i++) {
+        var l = (jsonData.change_in_motion_left[i] <=0)? 0 : jsonData.change_in_motion_left[i];
+        var r = (jsonData.change_in_motion_right[i] <=0)? 0 : jsonData.change_in_motion_right[i];
+        motionChartData.addRow([i, l, r]);
     }
+
     var motionChartOptions = {
         title: 'Motion Chart',
         legend: 'none',
@@ -47,7 +53,6 @@ function drawMotionChart(jsonData) {
 }
 
 function drawLineChart(jsonData) {
-    console.log(jsonData);
     var lineChartData = new google.visualization.DataTable();
     // columns head
     lineChartData.addColumn('string', 'avg_sleep_days');

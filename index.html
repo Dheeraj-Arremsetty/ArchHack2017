@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="icon" href="./mobileapp/img/logo.png">
 
@@ -17,6 +17,7 @@
   <script type="text/javascript" src="./mobileapp/animate.js"></script>
   <script type="text/javascript" src="./mobileapp/chart.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
   <script type="text/javascript">
     // Load google charts
     google.charts.load('current', { 'packages': ['corechart', 'line'] });
@@ -62,16 +63,38 @@
       <div class="col-sm-8">
         <h1>TheSmartPillow</h1>
         <p>Revolutionary way to reach deep into slumber.</p>
-        <p>
-          <h5 style="text-align: left; padding-left: 50px">
-            Temperature: <span class="label label-success" id="temp"></span>
-          </h5>
-        </p>
-        <p>
-          <h5 style="text-align: left; padding-left: 50px">
-            TimeStamp: <span class="label label-default" id="timestamp"></span>
-          </h5>
-        </p>
+        <table>
+          <tr>
+            <td>
+              <h5 style="text-align: left; padding-left: 50px"> Temperature:</h5>
+            </td>
+            <td>&nbsp;</td>
+            <td class="text-left"><span class="label label-success" id="temp"></span></td>
+          </tr>
+          <tr>
+            <td>
+              <h5 style="text-align: left; padding-left: 50px">Humidity:</h5>
+            </td>
+            <td>&nbsp;</td>
+            <td class="text-left"><span class="label label-info" id="humidity"></span></td>
+          </tr>
+          <tr>
+            <td>
+              <h5 style="text-align: left; padding-left: 50px">TimeStamp:</h5>
+            </td>
+            <td>&nbsp;</td>
+            <td class="text-left"><span class="label label-default" id="timestamp"></span></td>
+          </tr>
+          <tr>
+            <td>
+              <h5 style="text-align: left; padding-left: 50px">Click to check your history.</h5>
+            </td>
+            <td>&nbsp;</td>
+            <td class="text-left"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#historyModal">
+            <span class="glyphicon glyphicon-list-alt"></span></button>
+            </td>
+          </tr>
+        </table>
       </div>
       <div class="col-sm-4">
         <span id="status" class="glyphicon glyphicon-off statusbutton"></span>
@@ -154,7 +177,49 @@
         </div>
       </div>
     </div>
+  </div>
 
+  <!-- History Modal container -->
+  <div class="modal fade" id="historyModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sleep Pattern History</h4>
+        </div>
+        <div class="modal-body">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <td>Date</td>
+                  <td>Day</td>
+                  <td>Hours Slept</td>
+                  <td>Temperature</td>
+                  <td>Humidity</td>
+                  <td>REM Cycle time</td>
+                  <td>NREM Cycle time</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>10/1/2017</td>
+                  <td>Sunday</td>
+                  <td>6.5</td>
+                  <td>64&deg;F</td>
+                  <td>20%</td>
+                  <td>3</td>
+                  <td>4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!--div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div-->
+      </div>
+    </div>
   </div>
 
   <!-- Footer content -->
